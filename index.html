@@ -1,1 +1,1220 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Ottomans Cafe | Bir Kahveden Daha Fazlası</title>
+
+<style>
+
+/* GENEL AYARLAR */
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    background:#f7f1e8;
+    color:#2c211a;
+}
+
+
+/* ÜST MENÜ */
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:20;
+    background:rgba(38,25,17,.96);
+    padding:15px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    color:#e6c28b;
+    font-size:29px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:22px;
+    font:14px Arial,sans-serif;
+}
+
+nav a:hover{
+    color:#e6c28b;
+}
+
+
+/* ANA SAYFA */
+.hero{
+    min-height:92vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:110px 20px 60px;
+    color:white;
+
+    background:
+    linear-gradient(
+        rgba(30,19,12,.52),
+        rgba(30,19,12,.76)
+    ),
+    url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.hero h1{
+    font-size:78px;
+    letter-spacing:9px;
+    margin-bottom:12px;
+}
+
+.hero .slogan{
+    font-size:25px;
+    color:#f0d19d;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:#b47a3d;
+    color:white;
+    text-decoration:none;
+    padding:14px 27px;
+    border-radius:30px;
+    font:700 14px Arial,sans-serif;
+}
+
+
+/* HIZLI MENÜ */
+.quick{
+    background:#2c211a;
+    color:white;
+    padding:30px 7%;
+    text-align:center;
+}
+
+.quick h2{
+    color:#e6c28b;
+    margin-bottom:17px;
+}
+
+.quick a{
+    display:inline-block;
+    color:white;
+    text-decoration:none;
+    border:1px solid #806043;
+    border-radius:22px;
+    padding:9px 16px;
+    margin:4px;
+    font:13px Arial,sans-serif;
+}
+
+
+/* BÖLÜMLER */
+section{
+    max-width:1250px;
+    margin:auto;
+    padding:75px 6%;
+}
+
+.title{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#7b6758;
+    font:14px Arial,sans-serif;
+    margin-bottom:38px;
+}
+
+.category{
+    margin-bottom:60px;
+}
+
+
+/* ÜRÜN KARTLARI */
+.menu-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(245px,1fr));
+
+    gap:22px;
+}
+
+.card{
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:
+    0 8px 25px rgba(45,30,20,.1);
+
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.card-img{
+    height:165px;
+    background-size:cover;
+    background-position:center;
+}
+
+.card-body{
+    padding:18px;
+}
+
+.card h3{
+    font-size:21px;
+    margin-bottom:7px;
+}
+
+.desc{
+    color:#786558;
+    font:14px Arial,sans-serif;
+    line-height:1.45;
+    min-height:42px;
+}
+
+.price{
+    color:#a56c31;
+    font:700 18px Arial,sans-serif;
+    margin-top:12px;
+}
+
+.badge{
+    display:inline-block;
+    margin-top:9px;
+    padding:4px 8px;
+    border-radius:12px;
+    background:#eee0cd;
+    color:#765335;
+    font:11px Arial,sans-serif;
+}
+
+
+/* İLETİŞİM */
+.info-section{
+    background:#eadbc8;
+    max-width:none;
+}
+
+.info-grid{
+    max-width:1100px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(230px,1fr));
+
+    gap:20px;
+}
+
+.info-box{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.info-box h3{
+    margin-bottom:10px;
+    color:#9d642e;
+}
+
+.info-box p{
+    font:14px Arial,sans-serif;
+    color:#67564a;
+    line-height:1.6;
+}
+
+
+/* ALT KISIM */
+footer{
+    background:#241913;
+    color:#ddd;
+    text-align:center;
+    padding:28px;
+    font:13px Arial,sans-serif;
+}
+
+footer strong{
+    color:#e6c28b;
+}
+
+
+/* TELEFON / TABLET */
+@media(max-width:700px){
+
+    header{
+        padding:13px 4%;
+        flex-direction:column;
+        gap:8px;
+    }
+
+    nav a{
+        margin:0 7px;
+        font-size:12px;
+    }
+
+    .hero h1{
+        font-size:49px;
+        letter-spacing:5px;
+    }
+
+    .hero .slogan{
+        font-size:20px;
+    }
+
+    section{
+        padding:55px 5%;
+    }
+
+    .title{
+        font-size:31px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ÜST MENÜ -->
+
+<header>
+
+    <div class="logo">
+        OTTOMANS
+    </div>
+
+    <nav>
+
+        <a href="#anasayfa">
+            Ana Sayfa
+        </a>
+
+        <a href="#menu">
+            Menü
+        </a>
+
+        <a href="#kahvalti">
+            Kahvaltı
+        </a>
+
+        <a href="#iletisim">
+            İletişim
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ANA SAYFA -->
+
+<main>
+
+<section class="hero" id="anasayfa">
+
+    <div class="hero-content">
+
+        <h1>
+            OTTOMANS
+        </h1>
+
+        <p class="slogan">
+            Bir Kahveden Daha Fazlası
+        </p>
+
+        <a class="btn" href="#menu">
+            Menüyü Keşfet
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- HIZLI MENÜ -->
+
+<div class="quick">
+
+    <h2>
+        Hızlı Menü
+    </h2>
+
+    <a href="#sicak">
+        ☕ Sıcak Kahveler
+    </a>
+
+    <a href="#soguk">
+        🧊 Soğuk Kahveler
+    </a>
+
+    <a href="#tatli">
+        🍰 Tatlılar
+    </a>
+
+    <a href="#kahvalti">
+        🥐 Kahvaltı
+    </a>
+
+    <a href="#atistirmalik">
+        🍟 Atıştırmalık
+    </a>
+
+</div>
+
+
+
+<!-- MENÜ -->
+
+<section id="menu">
+
+    <h2 class="title">
+        Ottomans Menü
+    </h2>
+
+    <p class="subtitle">
+        Taze hazırlanan lezzetlerimizle
+        günün her saatinde yanınızdayız.
+    </p>
+
+
+
+    <!-- SICAK KAHVELER -->
+
+    <div class="category" id="sicak">
+
+        <h2 class="title">
+            ☕ Sıcak Kahveler
+        </h2>
+
+        <p class="subtitle">
+            Klasik ve özel kahve seçenekleri
+        </p>
+
+
+        <div class="menu-grid">
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Türk Kahvesi
+                    </h3>
+
+                    <p class="desc">
+                        Geleneksel köpüklü Türk kahvesi.
+                    </p>
+
+                    <div class="price">
+                        ₺90
+                    </div>
+
+                    <span class="badge">
+                        1 fincan
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Americano
+                    </h3>
+
+                    <p class="desc">
+                        Espresso ve sıcak su ile sade kahve.
+                    </p>
+
+                    <div class="price">
+                        ₺110
+                    </div>
+
+                    <span class="badge">
+                        250 ml
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Cappuccino
+                    </h3>
+
+                    <p class="desc">
+                        Espresso, sıcak süt ve süt köpüğü.
+                    </p>
+
+                    <div class="price">
+                        ₺130
+                    </div>
+
+                    <span class="badge">
+                        300 ml
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Latte
+                    </h3>
+
+                    <p class="desc">
+                        Yumuşak içimli espresso ve süt.
+                    </p>
+
+                    <div class="price">
+                        ₺135
+                    </div>
+
+                    <span class="badge">
+                        300 ml
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SOĞUK KAHVELER -->
+
+    <div class="category" id="soguk">
+
+        <h2 class="title">
+            🧊 Soğuk Kahveler
+        </h2>
+
+        <p class="subtitle">
+            Serinleten kahve keyfi
+        </p>
+
+
+        <div class="menu-grid">
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Iced Latte
+                    </h3>
+
+                    <p class="desc">
+                        Soğuk süt, espresso ve buz.
+                    </p>
+
+                    <div class="price">
+                        ₺145
+                    </div>
+
+                    <span class="badge">
+                        400 ml
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Ice Americano
+                    </h3>
+
+                    <p class="desc">
+                        Espresso, soğuk su ve buz.
+                    </p>
+
+                    <div class="price">
+                        ₺125
+                    </div>
+
+                    <span class="badge">
+                        400 ml
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Caramel Frappe
+                    </h3>
+
+                    <p class="desc">
+                        Kahve, süt, buz ve karamel aroması.
+                    </p>
+
+                    <div class="price">
+                        ₺165
+                    </div>
+
+                    <span class="badge">
+                        450 ml
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Mocha Cold
+                    </h3>
+
+                    <p class="desc">
+                        Soğuk kahve, çikolata ve süt.
+                    </p>
+
+                    <div class="price">
+                        ₺160
+                    </div>
+
+                    <span class="badge">
+                        400 ml
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TATLILAR -->
+
+    <div class="category" id="tatli">
+
+        <h2 class="title">
+            🍰 Tatlılar
+        </h2>
+
+        <p class="subtitle">
+            Kahvenin yanına en güzel eşlikçiler
+        </p>
+
+
+        <div class="menu-grid">
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Çikolatalı Pasta
+                    </h3>
+
+                    <p class="desc">
+                        Yoğun çikolatalı, yumuşak dokulu pasta.
+                    </p>
+
+                    <div class="price">
+                        ₺175
+                    </div>
+
+                    <span class="badge">
+                        1 dilim
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Cheesecake
+                    </h3>
+
+                    <p class="desc">
+                        Kremamsı peynir dolgusu ve meyve sosu.
+                    </p>
+
+                    <div class="price">
+                        ₺170
+                    </div>
+
+                    <span class="badge">
+                        1 dilim
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Waffle
+                    </h3>
+
+                    <p class="desc">
+                        Meyve, çikolata sosu ve dondurma ile.
+                    </p>
+
+                    <div class="price">
+                        ₺220
+                    </div>
+
+                    <span class="badge">
+                        1 porsiyon
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Brownie
+                    </h3>
+
+                    <p class="desc">
+                        Sıcak brownie, çikolata sosu ve dondurma.
+                    </p>
+
+                    <div class="price">
+                        ₺165
+                    </div>
+
+                    <span class="badge">
+                        1 porsiyon
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- KAHVALTI -->
+
+    <div class="category" id="kahvalti">
+
+        <h2 class="title">
+            🥐 Kahvaltı
+        </h2>
+
+        <p class="subtitle">
+            Güne lezzetli bir başlangıç
+        </p>
+
+
+        <div class="menu-grid">
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Serpme Kahvaltı
+                    </h3>
+
+                    <p class="desc">
+                        Peynir, zeytin, yumurta, reçel,
+                        bal, tereyağı ve sıcak ürünler.
+                    </p>
+
+                    <div class="price">
+                        ₺650
+                    </div>
+
+                    <span class="badge">
+                        2 kişilik
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Kahvaltı Tabağı
+                    </h3>
+
+                    <p class="desc">
+                        Peynir, zeytin, yumurta,
+                        domates, salatalık ve ekmek.
+                    </p>
+
+                    <div class="price">
+                        ₺290
+                    </div>
+
+                    <span class="badge">
+                        1 kişilik
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Avokadolu Tost
+                    </h3>
+
+                    <p class="desc">
+                        Ekşi mayalı ekmek, avokado,
+                        yumurta ve yeşillik.
+                    </p>
+
+                    <div class="price">
+                        ₺260
+                    </div>
+
+                    <span class="badge">
+                        1 porsiyon
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ATIŞTIRMALIKLAR -->
+
+    <div class="category" id="atistirmalik">
+
+        <h2 class="title">
+            🍟 Atıştırmalıklar
+        </h2>
+
+        <p class="subtitle">
+            Paylaşmalık ve pratik lezzetler
+        </p>
+
+
+        <div class="menu-grid">
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Patates Tabağı
+                    </h3>
+
+                    <p class="desc">
+                        Baharatlı çıtır patates ve özel soslar.
+                    </p>
+
+                    <div class="price">
+                        ₺180
+                    </div>
+
+                    <span class="badge">
+                        1 porsiyon
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Karışık Pizza
+                    </h3>
+
+                    <p class="desc">
+                        Sucuk, mantar, biber,
+                        zeytin ve mozzarella.
+                    </p>
+
+                    <div class="price">
+                        ₺330
+                    </div>
+
+                    <span class="badge">
+                        1 orta boy
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div
+                class="card-img"
+                style="
+                background-image:url(
+                'https://images.unsplash.com/photo-1568901346375-23c9450c58bd?auto=format&fit=crop&w=700&q=80'
+                )">
+                </div>
+
+                <div class="card-body">
+
+                    <h3>
+                        Ottomans Burger
+                    </h3>
+
+                    <p class="desc">
+                        Dana burger, cheddar,
+                        karamelize soğan ve patates.
+                    </p>
+
+                    <div class="price">
+                        ₺340
+                    </div>
+
+                    <span class="badge">
+                        1 porsiyon
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- İLETİŞİM -->
+
+<section class="info-section" id="iletisim">
+
+    <h2 class="title">
+        Bizi Bulun
+    </h2>
+
+    <p class="subtitle">
+        Ottomans'ta kahvenizi keyifle yudumlayın.
+    </p>
+
+
+    <div class="info-grid">
+
+
+        <div class="info-box">
+
+            <h3>
+                📍 Konum
+            </h3>
+
+            <p>
+                Merkez Mahallesi<br>
+                Kahve Sokak No: 15<br>
+                Türkiye
+            </p>
+
+        </div>
+
+
+
+        <div class="info-box">
+
+            <h3>
+                📞 İletişim
+            </h3>
+
+            <p>
+                0555 555 55 55<br>
+                info@ottomanscafe.com
+            </p>
+
+        </div>
+
+
+
+        <div class="info-box">
+
+            <h3>
+                🕐 Çalışma Saatleri
+            </h3>
+
+            <p>
+                Her gün<br>
+                09:00 – 00:00
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <strong>
+        OTTOMANS
+    </strong>
+
+    — Bir Kahveden Daha Fazlası
+
+    <br><br>
+
+    © 2026 Ottomans Cafe
+
+</footer>
+
+
+</body>
+</html>
